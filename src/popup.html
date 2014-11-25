@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GoTo</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id=header>
+      <img src="../icons/logo.svg"/>
+      <h1>GOTO</h1>
+      <div id="menu">
+        <span id="menu-new" class="active">NEW</span>
+        <span id="menu-manage">MANAGE</span>
+      </div>
+    </div>
+    <div class="wrapper" id="wrapper-new">
+      <div id="form">
+        <div class="input-line">
+          <img src="../icons/shortcut.svg"/>
+          <input type="text" placeholder="Shortcut" id="add-shortcut"/>
+          <br style="clear:both;"/>
+        </div>
+        <div class="input-line">
+          <img src="../icons/url.svg" class="icon-url"/>
+          <input type="url" placeholder="Url" id="add-url">
+          <br style="clear:both;"/>
+        </div>
+
+        <button id="add">Add</button>
+        <p id="error">This shortcut is already used!</p>
+        <br style="clear:both;"/>
+      </div>
+    </div>
+
+    <div class="wrapper hidden" id="wrapper-manage">
+      <h2>Add a new shortcut</h2>
+      <input type="url" id="add-url"><br/>
+      <input type="text" id="add-shortcut">
+      <input type="url" id="add-url"><br/>
+      <input type="text" id="add-shortcut"
+      <input type="url" id="add-url"><br/>
+      <input type="text" id="add-shortcut"
+      <input type="url" id="add-url"><br/>
+      <button id="add">Add</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

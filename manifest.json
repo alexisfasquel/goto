@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "GoTo",
+  "description": "Goto",
+  "version": "0.0.1",
+  "author": "Alexis Fasquel <alexis.fsq@gmail.com>",
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "background": {
+    "scripts": ["src/background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/newideo48.png"//,
+      //"38": "images/icon38.png"
+    },
+    "default_title": "GoTo",
+    "default_popup": "src/popup.html"
+  }
+
+  /*"icons": {
+        "128": "res/icons/newideo128.png",
+        "48": "res/icons/newideo48.png"
+    }*/
+}
