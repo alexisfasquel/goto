@@ -7,7 +7,10 @@
   "author": "Alexis Fasquel <alexis.fsq@gmail.com>",
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "*://*/",
+    "webRequest",
+    "webRequestBlocking"
   ],
 
   "background": {
