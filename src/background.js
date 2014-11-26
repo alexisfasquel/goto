@@ -13,21 +13,6 @@ chrome.runtime.onInstalled.addListener(function() {
 
 });
 
-//chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-//  if (!inProgress) {
-//    for (var shortcut in localStorage) {
-//      if (tab.url.substring(7, tab.url.length) == shortcut) {
-//        inProgress = true;
-//        chrome.tabs.update(tabId,
-//                           {url: localStorage[shortcut]},
-//                           function(tab) {
-//                             inProgress = false;
-//                           });
-//      }
-//    }
-//  }
-//});
-
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
   return goto(details);
 }, {
@@ -36,7 +21,8 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 
 function goto(details) {
   for (var shortcut in localStorage) {
-    if(details.url == shortcut && details.requestId !== lastRequestId) {
+    var short = 'http://' + shortcut + '/';
+    if(details.url == short && details.requestId !== lastRequestId) {
       lastRequestId = details.requestId;
       return {
         redirectUrl : localStorage[shortcut]
@@ -48,13 +34,16 @@ function goto(details) {
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.action == "add") {
-    var short = 'http://' + request.shortcut + '/';
-    if(typeof localStorage[short] != 'undefined') {
+    if(typeof localStorage[request.shortcut] != 'undefined') {
       sendResponse(true);
     } else {
-      localStorage[short] = request.url;
+      localStorage[request.shortcut] = request.url;
       sendResponse(false);
     }
+  } else if (request.action == "request") {
+    sendResponse(localStorage);
+  } else if (request.action == "delete") {
+    delete localStorage[request.shortcut];
   }
 });
 

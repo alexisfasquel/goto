@@ -28,21 +28,16 @@
         </div>
 
         <button id="add">Add</button>
-        <p id="error">This shortcut is already used!</p>
+        <p class="error" id="error-used">This shortcut is already used.</p>
+        <p class="error" id="error-empty">The shortcut nor the URL can be empty.</p>
         <br style="clear:both;"/>
       </div>
     </div>
 
     <div class="wrapper hidden" id="wrapper-manage">
-      <h2>Add a new shortcut</h2>
-      <input type="url" id="add-url"><br/>
-      <input type="text" id="add-shortcut">
-      <input type="url" id="add-url"><br/>
-      <input type="text" id="add-shortcut"
-      <input type="url" id="add-url"><br/>
-      <input type="text" id="add-shortcut"
-      <input type="url" id="add-url"><br/>
-      <button id="add">Add</button>
+      <ul id ="goto-list">
+        <!-- ITEMS (HTML templates converted in JS when building) -->
+      </ul>
     </div>
     <script src="popup.js"></script>
   </body>
