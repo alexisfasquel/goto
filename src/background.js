@@ -47,9 +47,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       }
     });
   } else if (request.action == "request") {
-    storage.get(null, function(res) {
-      sendResponse(res);
-    })
+    storage.get(null, sendResponse);
+    //
   } else if (request.action == "delete") {
     storage.remove(request.shortcut);
   }
