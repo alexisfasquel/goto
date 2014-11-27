@@ -70,6 +70,16 @@ document.getElementById('add').addEventListener('click', function() {
 });
 
 
+window.onkeypress = function (event) {
+  if (event.which == 13 || event.keyCode == 13) {
+    document.getElementById('add').click();
+    return false;
+  }
+  return true;
+}
+
+
+
 document.getElementById('menu-new').addEventListener('click', function() {
   document.getElementById('menu-manage').setAttribute('class', '');
   document.getElementById('wrapper-manage').setAttribute('class', 'hidden');

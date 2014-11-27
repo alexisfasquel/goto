@@ -54,7 +54,8 @@ input:focus {
 }
 
 .wrapper {
-  margin: 0 auto;
+  width: 330px;
+  margin: 30px auto;
   padding: 20px 0px 20px 0px;
 }
 
@@ -137,9 +138,6 @@ input:focus {
 }
 
 #form {
-  width: 330px;
-  margin: 0 auto;
-  padding-top: 15px;
 
   button {
     margin-top: 15px;
