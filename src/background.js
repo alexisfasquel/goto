@@ -6,7 +6,27 @@
  */
 
 var lastRequestId;
-var syncStorage = chrome.storage.sync;
+var cache = {};
+
+// Init cache
+chrome.storage.sync.get(null, function(res) {
+  cache = res;
+});
+
+// Listen shortcuts changes because redirection should be done synchronously
+chrome.storage.onChanged.addListener(function(object, area) {
+  if(area != "sync") {
+    return;
+  }
+
+  for (key in object) {
+    if(object[key].newValue) {
+      cache[key] = object[key].newValue;
+    } else if(object[key].oldValue) {
+      delete cache[key];
+    }
+  }
+});
 
 // Authorizing the script when installing the extension
 chrome.runtime.onInstalled.addListener(function() {
@@ -20,16 +40,12 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 }, ["blocking"]);
 
 function goto(details) {
-  syncStorage.get(null, function(res) {
-    for (var shortcut in res) {
-      var short = 'http://' + shortcut + '/';
-      if(details.url == short && details.requestId !== lastRequestId) {
-        lastRequestId = details.requestId;
-        return {
-          redirectUrl : res[shortcut]
-        };
-      }
-    }
-  });
+  var urlRegex = /^http:\/\/([^\/]*)\/$/;
+  var possibleShortcut = urlRegex.exec(details.url);
+  if (possibleShortcut && cache[possibleShortcut[1]]) {
+    return {
+      redirectUrl: cache[possibleShortcut[1]]
+    };
+  }
 }
 
