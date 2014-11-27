@@ -10,7 +10,8 @@
     "tabs",
     "*://*/",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "storage"
   ],
 
   "background": {

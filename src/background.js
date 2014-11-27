@@ -5,7 +5,6 @@
  * to interact with chrome internal APIs.
  */
 
-
 var lastRequestId;
 
 // Authorizing the script when installing the extension
@@ -33,17 +32,26 @@ function goto(details) {
 
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  var storage = chrome.storage.sync;
+
   if (request.action == "add") {
-    if(typeof localStorage[request.shortcut] != 'undefined') {
-      sendResponse(true);
-    } else {
-      localStorage[request.shortcut] = request.url;
-      sendResponse(false);
-    }
+    storage.get(request.shortcut, function(res) {
+      if(res.hasOwnProperty(request.shortcut)) {
+        sendResponse(true);
+      } else {
+        var newShortcut = {};
+        newShortcut[request.shortcut] = request.url;
+        storage.set(newShortcut, function() {
+          sendResponse(false);
+        });
+      }
+    });
   } else if (request.action == "request") {
-    sendResponse(localStorage);
+    storage.get(null, function(res) {
+      sendResponse(res);
+    })
   } else if (request.action == "delete") {
-    delete localStorage[request.shortcut];
+    storage.remove(request.shortcut);
   }
 });
 
