@@ -8,9 +8,9 @@
   <body>
     <div id="header">
       <div class="row">
-        <img src="../icons/logo.svg"/>
+        <img id="logo" src="../icons/logo.svg"/>
         <h1>GOTO</h1>
-        <button id="add">INSTALL</button>
+        <button class="down-butt-head">DOWNLOAD</button>
       </div>
     </div>
     <div id="content" class="row">
@@ -18,15 +18,20 @@
       <p>
         GOTO is a Chrome extension that  helps you navigate through all your most favorite websites. It allows to create ‘textual’ shortcuts that you can use directly within the url bar.
       </p>
-      <button id="add">INSTALL</button>
+      <button class="down-butt">DOWNLOAD</button>
       <p>
         It is available directly from the Chrome Web Strore”. Once installed you’ll be able to add shortcuts!
       </p>
-      <br />
+      <div class="line"></div>
       <h1>How does to use it?</h1>
       <p>
         Let’s assume you that you created from the extention a new shortut ‘g’ associated to the url of gmail:
       </p>
+      <div class="example">
+        <p>g</p>
+        <img src="../icons/to.svg" alt="" class="icon-to"/>
+        <p>https://www.gmail.com</p>
+      </div>
       <p>
         You now just have to use this shortcut wihtin the URL bar, end it with a ’/’ , and press endter. You will then be redirected to the associated URL:
       </p>
@@ -34,7 +39,7 @@
       <p class="cloud-block">
         Bring your shorcuts with you everywhere as they will be associated with your Google account.
       </p>
-      <p>
+      <p class="privacy-block">
         Although the extension is asking for a lot of permission, it is only to acces to easy redirection functionnalities. The code is open source and can be reviewed easily if any doubt concerning privacy issues.
       </p>
       <br />
@@ -42,7 +47,7 @@
       <p>
         If you know you way around Javascript, there is plenty of simple ways to improve GOTO. Checkout the Github repository and don’t hesitate
       </p>
-      <p>
+      <p class="signature">
         Alexis Fasquel
       </p>
     </div>
