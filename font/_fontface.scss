@@ -1,11 +1,10 @@
-// RobotoCondensed Bold
+// Roboto Thin
 @font-face {
-  font-family: RobotoCondensed;
+  font-family: Roboto;
   font-style: normal;
-  font-weight: 400;
-  src: url('font/RobotoCondensed-Bold.ttf')  format('truetype');
+  font-weight: 100;
+  src: url('font/Roboto-Thin.ttf')  format('truetype');
 }
-
 
 // Roboto Light
 @font-face {
@@ -13,6 +12,30 @@
   font-style: normal;
   font-weight: 300;
   src: url('font/Roboto-Light.ttf')  format('truetype');
+}
+
+// Roboto Regular
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url('font/Roboto-Regular.ttf')  format('truetype');
+}
+
+// Roboto Medium
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  src: url('font/Roboto-Medium.ttf')  format('truetype');
+}
+
+// Roboto Bold
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  src: url('font/Roboto-Bold.ttf')  format('truetype');
 }
 
 // Roboto Black

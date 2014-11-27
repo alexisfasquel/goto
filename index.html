@@ -16,14 +16,21 @@
     <div id="content" class="row">
       <h1>Getting started</h1>
       <p>
-        GOTO is a Chrome extension that  helps you navigate through all your most favorite websites. It allows to create ‘textual’ shortcuts that you can use directly within the url bar.
+        <strong>GOTO</strong> is a Chrome extension that  helps you navigate through all your most favorite websites. It allows to create ‘textual’ shortcuts that you can use directly within the url bar.
       </p>
-      <button class="down-butt">DOWNLOAD</button>
       <p>
         It is available directly from the Chrome Web Strore”. Once installed you’ll be able to add shortcuts!
       </p>
+      <button class="down-butt">DOWNLOAD</button>
+      <p class="iconed cloud-block">
+        Bring your shorcuts with you everywhere as they will be associated with your Google account.
+      </p>
+      <p class="iconed privacy-block">
+        Although the extension is asking for a lot of permission, it is only to acces to easy redirection functionnalities. The code is open source and can be reviewed easily if any doubt concerning privacy issues.
+      </p>
+
       <div class="line"></div>
-      <h1>How does to use it?</h1>
+      <h1>How to use it?</h1>
       <p>
         Let’s assume you that you created from the extention a new shortut ‘g’ associated to the url of gmail:
       </p>
@@ -36,13 +43,9 @@
         You now just have to use this shortcut wihtin the URL bar, end it with a ’/’ , and press endter. You will then be redirected to the associated URL:
       </p>
       <img src="icons/chrome.png" alt="" id="chrome-anim"/>
-      <p class="cloud-block">
-        Bring your shorcuts with you everywhere as they will be associated with your Google account.
-      </p>
-      <p class="privacy-block">
-        Although the extension is asking for a lot of permission, it is only to acces to easy redirection functionnalities. The code is open source and can be reviewed easily if any doubt concerning privacy issues.
-      </p>
-      <br />
+      <div class="line-blue"></div>
+
+      <div class="line"></div>
       <h1>Contribute</h1>
       <p>
         If you know you way around Javascript, there is plenty of simple ways to improve GOTO. Checkout the Github repository and don’t hesitate
@@ -54,7 +57,7 @@
 
     <script>
       document.getElementById('chrome-anim').addEventListener('click', function() {
-        this.src = "../icons/chrome.gif";
+        this.src = "icons/chrome.gif";
       });
     </script>
 
