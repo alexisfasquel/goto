@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GoTo</title>
+    <link rel="stylesheet" href="goto.css" />
+  </head>
+  <body>
+    <div id="header">
+      <div class="row">
+        <img src="../icons/logo.svg"/>
+        <h1>GOTO</h1>
+        <button id="add">INSTALL</button>
+      </div>
+    </div>
+    <div id="content" class="row">
+      <h1>Getting started</h1>
+      <p>
+        GOTO is a Chrome extension that  helps you navigate through all your most favorite websites. It allows to create ‘textual’ shortcuts that you can use directly within the url bar.
+      </p>
+      <button id="add">INSTALL</button>
+      <p>
+        It is available directly from the Chrome Web Strore”. Once installed you’ll be able to add shortcuts!
+      </p>
+      <br />
+      <h1>How does to use it?</h1>
+      <p>
+        Let’s assume you that you created from the extention a new shortut ‘g’ associated to the url of gmail:
+      </p>
+      <p>
+        You now just have to use this shortcut wihtin the URL bar, end it with a ’/’ , and press endter. You will then be redirected to the associated URL:
+      </p>
+      <img src="../icons/chrome.png" alt="" id="chrome-anim"/>
+      <p class="cloud-block">
+        Bring your shorcuts with you everywhere as they will be associated with your Google account.
+      </p>
+      <p>
+        Although the extension is asking for a lot of permission, it is only to acces to easy redirection functionnalities. The code is open source and can be reviewed easily if any doubt concerning privacy issues.
+      </p>
+      <br />
+      <h1>Contribute</h1>
+      <p>
+        If you know you way around Javascript, there is plenty of simple ways to improve GOTO. Checkout the Github repository and don’t hesitate
+      </p>
+      <p>
+        Alexis Fasquel
+      </p>
+    </div>
+
+    <script>
+      document.getElementById('chrome-anim').addEventListener('click', function() {
+        this.src = "../icons/chrome.gif";
+      });
+    </script>
+
+  </body>
+</html>

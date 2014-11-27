@@ -1,0 +1,17 @@
+{
+  "name": "goto-website",
+  "version": "0.0.1",
+  "description": "Website of the GOTO Chrome extension",
+
+  "keywords": [
+    "shortcuts",
+    "urls"
+  ],
+  "author": "Alexis Fasquel <alexis.fsq@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-sass": "~0.16.1"
+  }
+}

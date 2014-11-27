@@ -1,0 +1,87 @@
+@import '../font/fontface';
+
+$blue: rgb(66, 165, 245);
+$dark-blue: rgb(30, 136, 229);
+
+$white: rgb(255, 255, 255);
+$white-transparent: rgba(255, 255, 255, 0.5);
+$shadow-color: rgba(0, 0, 0, 0.20);
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $white;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.row {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.icon-to {
+  display: inline-block;
+  margin-right: 10px;
+  width: 20px;
+  margin-bottom: -1px;
+}
+
+.cloud-block {
+  background: url("../icons/cloud.svg");
+}
+
+
+#header {
+  position: relative;
+  padding-left: 10px;
+  background: $blue;
+  color: $white;
+  box-shadow: 0 1px 1px $shadow-color;
+
+  img {
+    width: 40px;
+    padding: 15px;
+    float: left;
+  }
+
+  h1 {
+    display: inline-block;
+    line-height: 30px;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  button {
+    float: right;
+    padding: 5px 20px 5px 20px;
+    background: $blue;
+    border: 3px solid $white;
+    color: $white;
+    border-radius: 3px;
+    font-family: Roboto;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: $dark-blue;
+  }
+
+  button:focus {
+    outline: 0;
+  }
+}
+
+
+#content {
+  h1 {
+    color: $dark-blue;
+    font-weight: 200;
+    font-size: 50px;
+    margin: 50px;
+  }
+}
