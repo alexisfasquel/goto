@@ -1,3 +1,5 @@
+var syncStorage = chrome.storage.sync;
+
 var template = {};
 
 template['empty-item'] = "<p class=\"empty-list\">No shortcut has been registered yet.</p>\n";
@@ -19,7 +21,7 @@ function displayError(id) {
   }, 2000);
 }
 
-chrome.runtime.sendMessage({action: "request"}, function(storage) {
+syncStorage.get(function(storage) {
   var html = '';
   for(var item in storage) {
     var element = template['goto-item'].replace(/{shortcut}/g, item);
@@ -34,8 +36,7 @@ chrome.runtime.sendMessage({action: "request"}, function(storage) {
   var deleters = document.getElementsByClassName('icon-delete');
   for(var i in deleters) {
     deleters[i].addEventListener('click', function() {
-      chrome.runtime.sendMessage({action: "delete",
-                                  shortcut: this.getAttribute('shortcut')});
+      syncStorage.remove(this.getAttribute('shortcut'));
       var element = this.parentElement;
       var list = element.parentElement;
       list.removeChild(element);
@@ -57,11 +58,17 @@ document.getElementById('add').addEventListener('click', function() {
   var short = document.getElementById('add-shortcut').value;
   var url = document.getElementById('add-url').value;
   if (short != '' && url != '') {
-    chrome.runtime.sendMessage({action: "add", shortcut: short, url: url}, function(error) {
-      if (error) {
+    // Check if shortcut already exists
+    syncStorage.get(short, function(res) {
+      if (res.hasOwnProperty(short)) {
         displayError(ERROR_USED);
       } else {
-        window.close();
+        // Add new shortcut to the list
+        var newShortcut = {};
+        newShortcut[short] = url;
+        syncStorage.set(newShortcut, function() {
+          window.close();
+        })
       }
     });
   } else {

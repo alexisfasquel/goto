@@ -30,28 +30,3 @@ function goto(details) {
   }
 }
 
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  var storage = chrome.storage.sync;
-
-  if (request.action == "add") {
-    storage.get(request.shortcut, function(res) {
-      if(res.hasOwnProperty(request.shortcut)) {
-        sendResponse(true);
-      } else {
-        var newShortcut = {};
-        newShortcut[request.shortcut] = request.url;
-        storage.set(newShortcut, function() {
-          sendResponse(false);
-        });
-      }
-    });
-  } else if (request.action == "request") {
-    storage.get(null, sendResponse);
-    //
-  } else if (request.action == "delete") {
-    storage.remove(request.shortcut);
-  }
-});
-
-
