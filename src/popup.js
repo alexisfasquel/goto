@@ -21,11 +21,11 @@ function displayError(id) {
   }, 2000);
 }
 
-syncStorage.get(function(storage) {
+syncStorage.get(null, function(res) {
   var html = '';
-  for(var item in storage) {
+  for(var item in res) {
     var element = template['goto-item'].replace(/{shortcut}/g, item);
-    element = element.replace(/{url}/g, storage[item]);
+    element = element.replace(/{url}/g, res[item]);
     html += element;
   }
   if (html == '') {
