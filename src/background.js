@@ -6,6 +6,7 @@
  */
 
 var lastRequestId;
+var syncStorage = chrome.storage.sync;
 
 // Authorizing the script when installing the extension
 chrome.runtime.onInstalled.addListener(function() {
@@ -19,14 +20,16 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 }, ["blocking"]);
 
 function goto(details) {
-  for (var shortcut in localStorage) {
-    var short = 'http://' + shortcut + '/';
-    if(details.url == short && details.requestId !== lastRequestId) {
-      lastRequestId = details.requestId;
-      return {
-        redirectUrl : localStorage[shortcut]
-      };
+  syncStorage.get(null, function(res) {
+    for (var shortcut in res) {
+      var short = 'http://' + shortcut + '/';
+      if(details.url == short && details.requestId !== lastRequestId) {
+        lastRequestId = details.requestId;
+        return {
+          redirectUrl : res[shortcut]
+        };
+      }
     }
-  }
+  });
 }
 
