@@ -5,8 +5,28 @@
  * to interact with chrome internal APIs.
  */
 
-
 var lastRequestId;
+var cache = {};
+
+// Init cache
+chrome.storage.sync.get(null, function(res) {
+  cache = res;
+});
+
+// Listen shortcuts changes because redirection should be done synchronously
+chrome.storage.onChanged.addListener(function(object, area) {
+  if(area != "sync") {
+    return;
+  }
+
+  for (key in object) {
+    if(object[key].newValue) {
+      cache[key] = object[key].newValue;
+    } else if(object[key].oldValue) {
+      delete cache[key];
+    }
+  }
+});
 
 // Authorizing the script when installing the extension
 chrome.runtime.onInstalled.addListener(function() {
@@ -20,31 +40,12 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 }, ["blocking"]);
 
 function goto(details) {
-  for (var shortcut in localStorage) {
-    var short = 'http://' + shortcut + '/';
-    if(details.url == short && details.requestId !== lastRequestId) {
-      lastRequestId = details.requestId;
-      return {
-        redirectUrl : localStorage[shortcut]
-      };
-    }
+  var urlRegex = /^http:\/\/([^\/]*)\/$/;
+  var possibleShortcut = urlRegex.exec(details.url);
+  if (possibleShortcut && cache[possibleShortcut[1]]) {
+    return {
+      redirectUrl: cache[possibleShortcut[1]]
+    };
   }
 }
-
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.action == "add") {
-    if(typeof localStorage[request.shortcut] != 'undefined') {
-      sendResponse(true);
-    } else {
-      localStorage[request.shortcut] = request.url;
-      sendResponse(false);
-    }
-  } else if (request.action == "request") {
-    sendResponse(localStorage);
-  } else if (request.action == "delete") {
-    delete localStorage[request.shortcut];
-  }
-});
-
 
