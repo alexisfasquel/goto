@@ -171,6 +171,13 @@ input:focus {
     padding: 20px 0px 15px 5px;
   }
 
+  .empty-list {
+    p {
+      text-align: center;
+      margin: 50px 0;
+    }
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
@@ -192,6 +199,7 @@ input:focus {
     p {
       margin: 0;
       max-height: 20px;
+      line-height: 20px;
       display: inline-block;
       white-space: nowrap;
       overflow: hidden;

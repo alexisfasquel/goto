@@ -2,7 +2,7 @@
  * Author: alexfasquel (Alexis Fasquel)
  *
  * This is the backround page of the extension. It allows among other things
- * to interact with chrome internal APIs.
+ * to interact with chrome internal webRequest API.
  */
 
 var lastRequestId;
@@ -33,12 +33,16 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.tabs.create({url: 'http://alexisfasquel.github.io/goto'});
 });
 
+
+// Listening for request and running the redirection function 'goto'
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
   return goto(details);
 }, {
   urls : ["<all_urls>"]
 }, ["blocking"]);
 
+// This function will redirect the request to the url associated
+//if a shorcut has been found.
 function goto(details) {
   var urlRegex = /^http:\/\/([^\/]*)\/$/;
   var possibleShortcut = urlRegex.exec(details.url);

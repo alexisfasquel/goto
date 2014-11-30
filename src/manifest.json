@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "GoTo",
-  "description": "Goto",
-  "version": "0.0.2",
+  "name": "GOTO",
+  "description": "GOTO helps you navigate through all your most favorite websites.",
+  "version": "1.0",
   "author": "Alexis Fasquel <alexis.fsq@gmail.com>",
 
   "homepage_url": "http://alexisfasquel.github.io/goto",
