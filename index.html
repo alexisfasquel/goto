@@ -2,63 +2,69 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <title>GoTo</title>
     <link rel="stylesheet" href="goto.css" />
   </head>
   <body>
     <div id="header">
       <div class="row">
-        <img id="logo" src="icons/logo.svg"/>
+        <img id="logo" src="design/resources/logo.svg"/>
         <h1>GOTO</h1>
-        <button class="down-butt-head">DOWNLOAD</button>
+        <button class="down-butt">DOWNLOAD</button>
       </div>
     </div>
     <div id="content" class="row">
-      <h1>Getting started</h1>
+      <h1>The faster way to acces your favorite websites!</h1>
+      <div class="line"></div>
+      <h2>Getting started</h2>
       <p>
         <strong>GOTO</strong> is a Chrome extension that  helps you navigate through all your most favorite websites. It allows to create ‘textual’ shortcuts that you can use directly within the url bar.
       </p>
-      <p>
-        It is available directly from the Chrome Web Strore”. Once installed you’ll be able to add shortcuts!
-      </p>
-      <button class="down-butt">DOWNLOAD</button>
+      <img src="design/resources//chrome.png" alt="" id="chrome-anim"/>
+      <div class="line-blue"></div>
       <p class="iconed cloud-block">
         Bring your shorcuts with you everywhere as they will be associated with your Google account.
       </p>
       <p class="iconed privacy-block">
         Although the extension is asking for a lot of permission, it is only to acces to easy redirection functionnalities. The code is open source and can be reviewed easily if any doubt concerning privacy issues.
       </p>
-
       <div class="line"></div>
-      <h1>How to use it?</h1>
+      <h2>Where to get it?</h2>
       <p>
+      <strong>GOTO</strong> is only available for chrome at the time, and can be downloaded directly from the Chrome Web Store. Feel free to rate it!
+      </p>
+      <button class="down-butt">DOWNLOAD</button>
+      <div class="line"></div>
+      <h2>How to use it?</h2>
+      <p>
+        <span>1</span>
         Let’s assume you that you created from the extention a new shortut ‘g’ associated to the url of gmail:
       </p>
       <div class="example">
         <p>g</p>
-        <img src="icons/to.svg" alt="" class="icon-to"/>
+        <img src="design/resources//to.svg" alt="" class="icon-to"/>
         <p>https://www.gmail.com</p>
       </div>
       <p>
         You now just have to use this shortcut wihtin the URL bar, end it with a ’/’ , and press endter. You will then be redirected to the associated URL:
       </p>
-      <img src="icons/chrome.png" alt="" id="chrome-anim"/>
-      <div class="line-blue"></div>
 
       <div class="line"></div>
-      <h1>Contribute</h1>
+      <h2>Contribute</h2>
       <p>
-        If you know you way around Javascript, there is plenty of simple ways to improve GOTO. Checkout the Github repository and don’t hesitate
+        If you know you way around Javascript, there is plenty of simple ways to improve GOTO. Checkout the Github repository and don’t hesitate to sumbit a pull request!
+        <p>Also, I would like to thank <strong>Pierre-Marie Dartus</strong> for his great contribution!</p>
+
       </p>
       <p class="signature">
         Alexis Fasquel
       </p>
     </div>
 
-    <script src="modernizr.js"></script>
     <script>
       document.getElementById('chrome-anim').addEventListener('click', function() {
-        this.src = "icons/chrome.gif";
+        this.src = "design/resources/chrome.gif";
       });
       var buttons = document.getElementsByTagName('button');
       for(var i = 0; i < buttons.length; i++) {

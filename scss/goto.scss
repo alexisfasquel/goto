@@ -8,7 +8,6 @@ $white: rgb(255, 255, 255);
 $white-transparent: rgba(255, 255, 255, 0.5);
 $shadow-color: rgba(0, 0, 0, 0.20);
 
-
 body {
   margin: 200px 0;
   padding: 0;
@@ -27,18 +26,25 @@ strong {
 }
 
 button {
-    padding: 8px 20px 8px 20px;
-    background: $blue;
-    border: 3px solid $white;
-    color: $white;
-    border-radius: 5px;
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
+  padding: 8px 20px 8px 20px;
+  background: $blue;
+  border: 3px solid $white;
+  color: $white;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
 }
 button:focus {
   outline: 0;
+}
+
+
+img {
+  @media screen and (max-width: 450px) {
+    width: 90%;
+  }
 }
 
 .row {
@@ -47,36 +53,17 @@ button:focus {
   padding: 0 20px 0 20px;
 }
 
-.down-butt-head {
-  float: right;
-  margin-top: 48px;
-}
-.down-butt-head:hover {
-  background: $white;
-  color: $blue;
-}
-
-.down-butt {
-  background: $dark-blue;
-  margin: 50px auto;
-  display: block;
-  font-size: 25px;
-  padding: 15px 30px 15px 30px;
-}
-
-.down-butt:hover {
-  background: $white;
-  color: $dark-blue;
-  border: 3px solid $dark-blue;
-}
 
 .line {
-  margin: 30px;
+  margin: 60px 0px 30px 0px;
   height: 1px;
   background: $shadow-color;
 }
 
 .line-blue {
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
   width: 70%;
   margin: 0 auto 50px;
   height: 1px;
@@ -89,24 +76,29 @@ button:focus {
 }
 
 .iconed {
-  margin: 0 60px 20px;
+  margin: 0px 60px 20px 0px;
   padding-left: 100px;
   font-size: 16px;
   font-weight: 400;
+
+  @media screen and (max-width: 450px) {
+    margin: 0px 0px 20px 0px;
+  }
 }
 
 .cloud-block {
-  background: url("icons/cloud.svg") no-repeat;
+  background: url("design/resources/cloud.svg") no-repeat;
+  background-size: 66px;
 }
 
 .privacy-block {
-  background: url("icons/privacy.svg") no-repeat 2px 15px;
+  background: url("design/resources/privacy.svg") no-repeat 2px 13px;
   background-size: 66px;
 }
 
 .signature {
   float: right;
-  margin-right: 150px;
+  margin-right: 20%;
   color: $dark-blue;
   font-weight: 700;
 }
@@ -138,6 +130,10 @@ button:focus {
   #logo {
     width: 80px;
     margin: 30px 30px 30px 0;
+
+    @media screen and (max-width: 500px) {
+      margin: 30px 20px 30px 0;
+    }
   }
 
   h1 {
@@ -147,15 +143,55 @@ button:focus {
     font-weight: 900;
     font-style: italic;
     font-size: 70px;
+
+  }
+  .down-butt {
+    float: right;
+    margin-top: 48px;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+  .down-butt:hover {
+    background: $white;
+    color: $blue;
   }
 }
 
 
 #content {
   h1 {
+    color: $black;
+    font-weight: 200;
+    font-size: 60px;
+
+    @media screen and (max-width: 500px) {
+      font-size: 40px;
+    }
+  }
+  h2 {
     color: $dark-blue;
     font-weight: 300;
     font-size: 50px;
     margin: 30px;
+
+    @media screen and (max-width: 400px) {
+      margin: 30px 0px 30px 0px;
+      font-size: 35px;
+    }
+  }
+  .down-butt {
+    background: $dark-blue;
+    margin: 50px auto;
+    display: block;
+    font-size: 25px;
+    padding: 15px 30px 15px 30px;
+  }
+
+  .down-butt:hover {
+    background: $white;
+    color: $dark-blue;
+    border: 3px solid $dark-blue;
   }
 }
