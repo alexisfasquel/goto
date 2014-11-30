@@ -2,10 +2,6 @@
   "name": "goto",
   "version": "0.0.1",
   "description": "Shortcuts for urls",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "shortcuts",
     "urls"
@@ -16,6 +12,9 @@
     "grunt": "~0.4.5",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-sass": "~0.16.1",
-    "grunt-html-convert": "0.0.1"
+    "grunt-html-convert": "0.0.1",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-import": "~0.1.7",
+    "grunt-contrib-compress": "~0.12.0"
   }
 }

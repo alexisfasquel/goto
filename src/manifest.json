@@ -3,8 +3,10 @@
 
   "name": "GoTo",
   "description": "Goto",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Alexis Fasquel <alexis.fsq@gmail.com>",
+
+  "homepage_url": "http://alexisfasquel.github.io/goto",
 
   "permissions": [
     "tabs",
@@ -15,20 +17,20 @@
   ],
 
   "background": {
-    "scripts": ["src/background.js"]
+    "scripts": ["background.js"]
   },
 
   "browser_action": {
     "default_icon": {
-      "19": "icons/newideo48.png"//,
-      //"38": "images/icon38.png"
+      "19": "res/goto48.png",
+      "48": "res/goto48.png"
     },
     "default_title": "GoTo",
-    "default_popup": "src/popup.html"
-  }
+    "default_popup": "popup.html"
+  },
 
-  /*"icons": {
-        "128": "res/icons/newideo128.png",
-        "48": "res/icons/newideo48.png"
-    }*/
+  "icons": {
+      "128": "res/goto128.png",
+      "48": "res/goto48.png"
+  }
 }

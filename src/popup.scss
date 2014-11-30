@@ -1,0 +1,226 @@
+@import '../font/fontface';
+
+$blue: rgb(66, 165, 245);
+$dark-blue: rgb(30, 136, 229);
+
+$white: rgb(255, 255, 255);
+$white-transparent: rgba(255, 255, 255, 0.5);
+$shadow-color: rgba(0, 0, 0, 0.20);
+
+
+body {
+  width: 400px;
+  margin: 0;
+  padding: 0;
+  background: $white;
+  font-size: 16px;
+  font-family: Roboto;
+  font-weight: 300;
+}
+
+button {
+  float: right;
+  padding: 10px 20px 10px 20px;
+  background: $blue;
+  border: 0;
+  border-radius: 3px;
+  color: $white;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: $dark-blue;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid $blue;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapper {
+  width: 330px;
+  margin: 20px auto;
+  padding: 10px 0px 0px 0px;
+}
+
+
+#header {
+  position: relative;
+  padding-left: 10px;
+  background: $blue;
+  color: $white;
+  box-shadow: 0 1px 1px $shadow-color;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+
+  img {
+    width: 40px;
+    padding: 15px;
+    float: left;
+  }
+
+  h1 {
+    display: inline-block;
+    line-height: 30px;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  span {
+    display: inline-block;
+    padding: 10px 15px 6px 15px;
+    opacity: .7;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  span:hover {
+    opacity: 1;
+  }
+
+  span.active {
+    border-bottom: 3px solid $white;
+    opacity: 1;
+  }
+
+  #menu {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+  }
+}
+
+#wrapper-new {
+
+  padding-right: 5px;
+
+  button {
+    margin-top: 10px;
+  }
+
+  #add-shortcut {
+    font-weight: 900;
+  }
+
+  .icon-url {
+    width: 50px;
+    padding: 2px 0px 0px 5px;
+  }
+
+  .input-line {
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+
+    img {
+      float: left;
+      height: 20px;
+      margin-top: 12px;
+    }
+
+    input {
+      margin-left: 20px;
+      width: 253px;
+    }
+  }
+
+  .error {
+    display: none;
+    float: left;
+    margin: 19px 0px 0px 0px;
+    width: 258px;
+    color: red;
+    font-weight: 900;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+#wrapper-manage {
+  padding: 0 20px 0 20px;
+  margin: 0 auto;
+  max-height: 350px;
+  overflow: scroll;
+
+  #goto-list {
+    padding: 20px 0px 15px 5px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+  }
+
+  li:hover{
+    .icon-delete {
+      display: inline;
+    }
+    .url {
+      width: 150px !important;
+    }
+  }
+
+  .to-line {
+    margin: 15px 10px 15px 10px;
+
+    p {
+      margin: 0;
+      max-height: 20px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .icon-delete {
+      display: none;
+      float: right;
+      width: 16px;
+      margin-top: 3px;
+      cursor: pointer;
+    }
+
+    .icon-to {
+      display: inline-block;
+      width: 15px;
+      margin: 0px 20px 3px 20px;
+    }
+
+    .shortcut {
+      min-width: 10px;
+      max-width: 55px;
+      font-weight: 900;
+    }
+
+    .url {
+      width: 240px;
+    }
+  }
+}
+

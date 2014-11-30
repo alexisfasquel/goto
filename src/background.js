@@ -30,7 +30,7 @@ chrome.storage.onChanged.addListener(function(object, area) {
 
 // Authorizing the script when installing the extension
 chrome.runtime.onInstalled.addListener(function() {
-
+  chrome.tabs.create({url: 'http://alexisfasquel.github.io/goto'});
 });
 
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
