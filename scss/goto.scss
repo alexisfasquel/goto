@@ -25,6 +25,10 @@ body {
   color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (max-width: 600px) {
+    margin: 150px 0;
+  }
 }
 
 strong {
@@ -115,7 +119,7 @@ img {
     width: 80px;
     margin: 30px 30px 30px 0;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       margin: 15px 20px 10px 0;
       width: 50px;
     }
@@ -129,7 +133,7 @@ img {
     font-style: italic;
     font-size: 70px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       font-size: 50px;
       line-height: 15px;
     }
