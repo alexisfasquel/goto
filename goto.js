@@ -7,7 +7,7 @@ var buttons = document.getElementsByTagName('button');
 
 
 var lastTop = 0;
-var MARGIN_MAX = 50;
+var MARGIN_MAX = 60;
 var currentMargin = 50;
 var MARGIN_MIN = 10;
 
@@ -18,6 +18,7 @@ window.onresize = function () {
 window.onscroll = function () {
 
   if (window.innerWidth < 600) {
+    console.log('test');
     return;
   }
 
@@ -25,8 +26,12 @@ window.onscroll = function () {
   var deplacement = this.pageYOffset - lastTop ;
   lastTop = this.pageYOffset;
 
+  if(deplacement < 0 && this.pageYOffset > 1000) {
+    return;
+  }
+
   // Changing the margin
-  currentMargin -= deplacement/20;
+  currentMargin -= deplacement/15;
 
   // Making sure it does not overflow
   if (currentMargin > MARGIN_MAX) {
